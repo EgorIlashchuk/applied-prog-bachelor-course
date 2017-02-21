@@ -15,11 +15,14 @@ namespace ConsoleApplication1
             string answer;
             do
             {
-                var first = Line.Init();
-                var second = Line.Init();
-                var c = Line.Check(first, second);
+                Console.WriteLine("Уравнение прямой типа y=kx+b");
+                Console.WriteLine("Введите коофиценты k,b по очереди");
+                var first = new Line(ConsoleData.GetData(), ConsoleData.GetData());
+                Console.WriteLine("Введите коофиценты k,b по очереди");
+                var second = new Line(ConsoleData.GetData(), ConsoleData.GetData());
+                var c = Operations.Cross(first, second);
                 point.print(c);       
-                Console.WriteLine("Задать параметры занаво? (Y/N)");
+                Console.WriteLine("Задать параметры заново? (Y/N)");
                 answer = Console.ReadLine();
             }
             while ((answer == "y")||(answer=="Y"));   
