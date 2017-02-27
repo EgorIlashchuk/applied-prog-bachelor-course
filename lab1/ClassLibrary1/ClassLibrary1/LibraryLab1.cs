@@ -45,8 +45,16 @@ namespace ClassLibrary1
         public static point Cross(Line first, Line second)
         {
             double y, x;
+            if ((first.b==second.b)&&(second.k==first.k))
+            {
+                Console.WriteLine("Прямые наложены друг на друга");
+                var a = new point(first.k, second.k);
+                return a;
+            }
+
             if (first.k != second.k)
             {
+                
                 x = (double)(second.b - first.b) / (first.k - second.k);
                 y = first.k * x + first.b;
                 var a = new point(x, y);
@@ -57,6 +65,7 @@ namespace ClassLibrary1
                 Console.WriteLine("Прямые параллельны,нет точек пересечения");
                 return null;
             }
+
         }
     }
 
